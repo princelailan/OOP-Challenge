@@ -1,12 +1,11 @@
-from pet import Pet
+from pet import Squirrel
 import time
 
 def main():
-    # Create a pet object
-    pet_name = input("Enter your pet's name: ")
-    pet_type = "Squirrel"  # Fixed to Squirrel
-    my_pet = Pet(pet_name, pet_type)
-    print(f"Creating pet: {my_pet.name} the {my_pet.pet_type}!")
+    # Create a squirrel object
+    pet_name = input("Enter your squirrel's name: ")
+    my_squirrel = Squirrel(pet_name)
+    print(f"Creating squirrel: {my_squirrel.name} the Squirrel!")
 
     # Main interaction loop
     while True:
@@ -18,33 +17,33 @@ def main():
         print("5. Collect Acorns")
         print("6. Train a Trick")
         print("7. Show Status")
-        print("8. Age Pet")
+        print("8. Age Squirrel")
         print("9. Random Event")
         print("0. Exit")
 
         choice = input("Enter your choice (0-9): ")
 
         if choice == '1':
-            my_pet.eat()
+            my_squirrel.eat()
         elif choice == '2':
-            my_pet.sleep()
+            my_squirrel.sleep()
         elif choice == '3':
-            my_pet.play()
+            my_squirrel.play()
         elif choice == '4':
-            my_pet.groom()
+            my_squirrel.groom()
         elif choice == '5':
-            my_pet.collect_acorns()
+            my_squirrel.collect_acorns()
         elif choice == '6':
-            trick = input("Enter a trick for your pet to learn: ")
-            my_pet.train(trick)
+            trick = input("Enter a trick for your squirrel to learn: ")
+            my_squirrel.train(trick)
         elif choice == '7':
-            my_pet.get_status()
+            my_squirrel.get_status()
         elif choice == '8':
-            my_pet.age_pet()
+            my_squirrel.age_squirrel()
         elif choice == '9':
-            my_pet.random_event()
+            my_squirrel.random_event()
         elif choice == '0':
-            print("Goodbye! Take care of your pet! Remember, acorns are life! 🐿️")
+            print("Goodbye! Take care of your squirrel! Remember, acorns are life! 🐿️")
             break
         else:
             print("Invalid choice. Please try again.")
