@@ -1,4 +1,3 @@
-
 import random
 
 class Squirrel:
@@ -35,7 +34,7 @@ class Squirrel:
                 print(f"The winter chill makes {self.name}'s {activity} a bit more tiring.")
         elif self.current_season == "Summer":
             if activity in ["play", "collect_acorns"]:
-                energy_modifier -= 0.5  # Slightly more tiring in summer
+                energy_modifier -= 0.5
                 print(f"The summer heat makes {self.name}'s {activity} a little draining.")
         return energy_modifier
 
@@ -75,7 +74,7 @@ class Squirrel:
         if self.has_nest:
             energy_gain = 6
             message = f"{self.name} snuggles into its cozy nest and sleeps soundly..."
-            self._change_stat('happiness', 1) # Small happiness boost from a comfy nest
+            self._change_stat('happiness', 1)
         if self._change_stat('energy', energy_gain):
             print(f"{message} 'Dreaming of tall trees and tasty nuts!' 😴")
         else:
@@ -110,7 +109,7 @@ class Squirrel:
         if self._change_stat('energy', -energy_cost):
             self._change_stat('happiness', 1)
             self.acorns_collected += 1
-            found_something = random.randint(1, 15) # Increased chance of finding something
+            found_something = random.randint(1, 15)
             if found_something <= 2:
                 treasure = random.choice(["a shiny pebble", "a colorful feather", "a smooth acorn shell"])
                 self.found_items.append(treasure)
@@ -157,7 +156,7 @@ class Squirrel:
             print(f"{self.name} had a fun chase with the bunny! A bit tiring, but lots of fun! 😄")
         elif animal == "a wise old owl":
             print(f"The owl hooted softly. It seemed to share some ancient wisdom with {self.name}.")
-            self._change_stat('happiness', 1) # A moment of connection
+            self._change_stat('happiness', 1)
 
     def get_status(self):
         """Prints the current status of the squirrel."""
@@ -191,7 +190,7 @@ class Squirrel:
             self._change_stat('happiness', 1)
             return
         print(f"You and {self.name} work on '{trick_name}' together...")
-        if random.randint(1, 3) == 1: # 1 in 3 chance of learning during practice
+        if random.randint(1, 3) == 1:
             self.tricks.append(trick_name)
             self._change_stat('happiness', 2)
             print(f"Amazing! {self.name} mastered '{trick_name}' through practice! 🎉")
@@ -226,3 +225,36 @@ class Squirrel:
         event = random.choice([
             "discovered a hidden grove of extra tasty nuts!",
             "got momentarily tangled in some vines!",
+            "found a secret path through the forest!",
+            "encountered a kind hiker who shared some food.",
+            "heard strange noises and became cautious.",
+            "tripped on a root and hurt a paw.",
+            "climbed the tallest tree and felt proud.",
+            "slipped into a cold stream—brrr!"
+        ])
+
+        print(f"\nRandom event: {self.name} {event}")
+
+        if "tasty nuts" in event:
+            self._change_stat('hunger', -3)
+            self._change_stat('happiness', 2)
+        elif "tangled" in event:
+            self._change_stat('energy', -1)
+            self._change_stat('happiness', -1)
+        elif "secret path" in event:
+            self._change_stat('energy', -1)
+            self._change_stat('happiness', 1)
+        elif "hiker" in event:
+            self._change_stat('hunger', -2)
+            self._change_stat('happiness', 2)
+        elif "noises" in event:
+            self._change_stat('happiness', -2)
+        elif "hurt a paw" in event:
+            self._change_stat('health', -2)
+            self._change_stat('happiness', -1)
+        elif "tallest tree" in event:
+            self._change_stat('happiness', 3)
+        elif "cold stream" in event:
+            self._change_stat('energy', -2)
+            self._change_stat('health', -1)
+            self._change_stat('happiness', -1)
